@@ -1,5 +1,6 @@
 package com.example.pokemonapp.model
 
+import androidx.lifecycle.LiveData
 import com.squareup.moshi.Json
 
 data class PokemonResponse(
