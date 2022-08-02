@@ -2,12 +2,12 @@ package com.example.pokemonapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonapp.R
 import com.example.pokemonapp.model.Pokemon
+import com.example.pokemonapp.overview.PokemonAdapterClickListener
 
-class PokemonAdapter(val pokemones:List<Pokemon>) : RecyclerView.Adapter<PokemonViewHolder>() {
+class PokemonAdapter(val pokemones:List<Pokemon>, private val onClickListener:(Pokemon)->Unit) : RecyclerView.Adapter<PokemonViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
@@ -17,7 +17,7 @@ class PokemonAdapter(val pokemones:List<Pokemon>) : RecyclerView.Adapter<Pokemon
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val item = pokemones[position]
-        holder.render(item)
+        holder.render(item,onClickListener)
     }
 
     override fun getItemCount(): Int {

@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="com.example.pokemonapp.overview.OverviewViewModel" />
+        <variable
+            name="overviewFragment"
+            type="com.example.pokemonapp.overview.OverviewFragment" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView
