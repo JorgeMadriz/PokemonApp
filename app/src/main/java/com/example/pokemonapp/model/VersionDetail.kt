@@ -4,5 +4,5 @@ import com.squareup.moshi.Json
 
 data class VersionDetail(
     @Json(name = "rarity") val rarity:Int,
-    @Json(name = "version") val version:Pokemon,
+    @Json(name = "version") val version:Version,
 )

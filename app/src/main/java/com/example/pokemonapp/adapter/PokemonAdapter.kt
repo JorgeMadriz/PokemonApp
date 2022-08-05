@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonapp.R
 import com.example.pokemonapp.model.Pokemon
-import com.example.pokemonapp.overview.PokemonAdapterClickListener
+
 
 class PokemonAdapter(val pokemones:List<Pokemon>, private val onClickListener:(Pokemon)->Unit) : RecyclerView.Adapter<PokemonViewHolder>() {
 

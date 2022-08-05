@@ -8,7 +8,11 @@
         <variable
             name="viewModel"
             type="com.example.pokemonapp.overview.DetailsViewModel" />
+        <variable
+            name="detailsFagment"
+            type="com.example.pokemonapp.overview.DetailsFragment" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -34,16 +38,19 @@
             android:id="@+id/numeroPokemon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Numero Pokemon"
+            android:layout_marginTop="32dp"
+            android:text="normal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imagePokemon"
-            app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
+            app:layout_constraintHorizontal_bias="0.194"
+            app:layout_constraintStart_toEndOf="@+id/imageTipo"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageTipo"
             android:layout_width="74dp"
             android:layout_height="49dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="60dp"
             app:layout_constraintStart_toEndOf="@+id/imagePokemon"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,12 +58,34 @@
             android:id="@+id/nombreTipo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:text="Normal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.343"
+            app:layout_constraintHorizontal_bias="0.197"
             app:layout_constraintStart_toEndOf="@+id/imageTipo"
             app:layout_constraintTop_toBottomOf="@+id/numeroPokemon" />
 
+        <View
+            android:id="@+id/barraSeparadora"
+            android:layout_width="406dp"
+            android:layout_height="5dp"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePokemon" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMoves"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_movesrecyclerview" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

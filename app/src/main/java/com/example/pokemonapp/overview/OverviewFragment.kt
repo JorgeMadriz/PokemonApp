@@ -1,22 +1,17 @@
 package com.example.pokemonapp.overview
 
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokemonapp.R
 import com.example.pokemonapp.adapter.PokemonAdapter
 import com.example.pokemonapp.databinding.FragmentOverviewBinding
 import com.example.pokemonapp.model.Pokemon
-import java.util.Collections.list
-
 
 class OverviewFragment() : Fragment(){
 
@@ -42,17 +37,19 @@ class OverviewFragment() : Fragment(){
         viewModel.pokemonObject.observe(viewLifecycleOwner){
             val manager = LinearLayoutManager(requireContext())
             binding.recyclerViewPokemon.layoutManager = manager
-            binding.recyclerViewPokemon.adapter = PokemonAdapter(it,{onItemSelected(it)})
+            binding.recyclerViewPokemon.adapter = PokemonAdapter(it) { onItemSelected(it) }
         }
         super.onViewCreated(view, savedInstanceState)
     }
-    fun goToNextScreen(){
+    private fun goToNextScreen(){
         findNavController().navigate(R.id.action_overviewFragment_to_detailsFragment)
     }
 
     fun onItemSelected(pokemon: Pokemon){
+        val pokemonId = pokemon.name
+        val pokemonIdUrl = pokemon.url
+        println(pokemonId)
+        println(pokemonIdUrl)
         goToNextScreen()
-        pokemon.name
     }
-
 }

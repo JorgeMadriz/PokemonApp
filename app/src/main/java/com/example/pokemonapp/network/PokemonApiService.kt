@@ -1,13 +1,15 @@
 package com.example.pokemonapp.network
 
-import com.example.pokemonapp.model.Pokemon
-import com.example.pokemonapp.model.PokemonDetalisResponse
+import com.example.pokemonapp.model.PokemonDetailsResponse
 import com.example.pokemonapp.model.PokemonResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.PATCH
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 private const val BASE_URL =
     "https://pokeapi.co/api/v2/"
@@ -24,8 +26,8 @@ private val retrofit = Retrofit.Builder()
 interface PokemonApiService{
     @GET("pokemon")
     suspend fun getPokemon():PokemonResponse
-    @GET("pokemon/ditto")
-    suspend fun getPokemonDetails():PokemonDetalisResponse
+    @GET("pokemon/{pokemonName}/")
+    suspend fun getPokemonDetails(@Path("pokemonName") pokemonName:String):PokemonDetailsResponse
 }
 
 object PokemonApi {

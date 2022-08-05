@@ -14,15 +14,12 @@ import com.example.pokemonapp.model.Pokemon
 import com.example.pokemonapp.overview.OverviewFragment
 
 
-class PokemonViewHolder(view:View):RecyclerView.ViewHolder(view){
+class PokemonViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
     val binding = ItemPokemonrecyclerviewBinding.bind(view)
 
-    fun render (pokemon: Pokemon,onClickListener:(Pokemon)->Unit){
+    fun render(pokemon: Pokemon, onClickListener: (Pokemon) -> Unit) {
         binding.pokemonName.text = pokemon.name
-        /*binding.pokemoncard.setOnClickListener {
-            Toast.makeText(binding.pokemonName.context,pokemon.name,Toast.LENGTH_SHORT).show()
-        }*/
-        binding.pokemoncard.setOnClickListener{onClickListener(pokemon)}
+        binding.pokemoncard.setOnClickListener { onClickListener(pokemon) }
     }
 }
