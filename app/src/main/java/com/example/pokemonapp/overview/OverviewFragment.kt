@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pokemonapp.R
 import com.example.pokemonapp.adapter.PokemonAdapter
 import com.example.pokemonapp.databinding.FragmentOverviewBinding
 import com.example.pokemonapp.model.Pokemon
@@ -41,15 +40,13 @@ class OverviewFragment() : Fragment(){
         }
         super.onViewCreated(view, savedInstanceState)
     }
-    private fun goToNextScreen(){
-        findNavController().navigate(R.id.action_overviewFragment_to_detailsFragment)
-    }
 
     fun onItemSelected(pokemon: Pokemon){
+       /* //val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
+        holder.view.findNavController().navigate(action)*/
         val pokemonId = pokemon.name
         val pokemonIdUrl = pokemon.url
-        println(pokemonId)
-        println(pokemonIdUrl)
-        goToNextScreen()
+        val action = OverviewFragmentDirections.actionOverviewFragmentToDetailsFragment(pokemonName = pokemonId, pokemonUrl = pokemonIdUrl)
+        findNavController().navigate(action)
     }
 }
