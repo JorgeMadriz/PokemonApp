@@ -20,6 +20,6 @@ data class PokemonDetailsResponse (
    // @Json(name = "species")val species: Species,
     //@Json(name = "sprites")val sprites: List<String>,
     @Json(name = "stats")val stats: List<Stast>,
-    //@Json(name = "types")val types:List<Tipo>,
+    @Json(name = "types")val types:List<Tipo>,
     //@Json(name = "weight")val weight:Int
     )
