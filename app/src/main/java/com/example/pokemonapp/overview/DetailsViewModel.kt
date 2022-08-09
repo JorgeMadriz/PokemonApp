@@ -24,8 +24,8 @@ class DetailsViewModel : ViewModel() {
     private val _pokemonMoves= MutableLiveData<List<Moves>>()
     val pokemonMoves:LiveData<List<Moves>> = _pokemonMoves
 
-    private val _pokemonObjectDetails = MutableLiveData<PokemonDetailsResponse>()
-    val pokemonObjectDetails: LiveData<PokemonDetailsResponse> = _pokemonObjectDetails
+    private val _sprite = MutableLiveData<Sprites>()
+    val sprites: LiveData<Sprites> = _sprite
 
 
 
@@ -33,10 +33,12 @@ class DetailsViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val listResult = PokemonApi.retrofitService.getPokemonDetails(path)
+                _sprite.value = listResult.sprites
                 _pokemonName.value = listResult.name
                 _pokemonId.value = listResult.id.toString()
                 _pokemonMoves.value = listResult.moves
-                println(_pokemonType.value)
+                _pokemonType.value = listResult.types
+
             } catch (e: Exception) {
                 _pokemonName.value = "Failure: ${e.message}"
             }
